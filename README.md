@@ -11,14 +11,36 @@ Sistema automatizado para análise de qualidade de atendimento ao cliente basead
 
 ## 🚀 Como Usar
 
-### Execução Básica
+### 🌐 Interface Web (Recomendado)
+Acesse a aplicação web: [Auditor de Atendimento](https://auditor-atendimento.streamlit.app)
+
+### 💻 Linha de Comando
+
+#### Execução Básica
 ```bash
-python main.py
+python3 main.py
 ```
 
-### Com arquivo específico
+#### Com arquivo específico
 ```bash
-python main.py exemplos/exemplo_conversa.txt
+python3 main.py exemplos/exemplo_conversa.txt
+```
+
+### 🖥️ Executar Localmente
+
+#### Interface Web Local
+```bash
+# Instalar dependências
+pip install -r requirements.txt
+
+# Executar aplicação Streamlit
+streamlit run app.py
+```
+
+#### Aplicação de Linha de Comando
+```bash
+# Executar diretamente
+python3 main.py
 ```
 
 ## 📁 Estrutura do Projeto
@@ -26,9 +48,15 @@ python main.py exemplos/exemplo_conversa.txt
 ```
 auditor-atendimento/
 │
-├── main.py                 # Arquivo principal
+├── main.py                 # Aplicação CLI
+├── app.py                  # Interface Web (Streamlit)
 ├── requirements.txt        # Dependências
+├── packages.txt           # Dependências do sistema
 ├── README.md              # Documentação
+├── LICENSE                # Licença MIT
+├── .gitignore            # Configuração Git
+├── .streamlit/
+│   └── config.toml       # Configuração Streamlit
 ├── exemplos/
 │   └── exemplo_conversa.txt  # Exemplo de conversa
 └── auditor/
