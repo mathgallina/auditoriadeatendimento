@@ -1,0 +1,10 @@
+[09:00:15] Cliente: Olá, preciso de ajuda com meu pedido
+[09:00:25] Atendente: Olá! Obrigado por entrar em contato. Vou ajudá-lo com seu pedido. Pode me informar o número do pedido?
+[09:00:45] Cliente: Sim, é o pedido #12345
+[09:01:00] Atendente: Perfeito! Vou verificar o status do seu pedido #12345. Aguarde um momento, por favor.
+[09:01:30] Atendente: Encontrei seu pedido. Ele está em processamento e deve ser enviado hoje. Fico à disposição para qualquer dúvida.
+[09:01:50] Cliente: Entendi, mas quando chega?
+[09:02:05] Atendente: Compreendo sua preocupação. Vou verificar o prazo de entrega estimado para você.
+[09:02:25] Atendente: O prazo de entrega é de 3 a 5 dias úteis. Vou fazer o possível para que chegue o mais rápido possível.
+[09:02:45] Cliente: Ok, obrigado pela ajuda
+[09:02:55] Atendente: De nada! Fico à disposição se precisar de mais alguma coisa. Tenha um ótimo dia! 
