@@ -90,24 +90,36 @@ def main():
 
 
 def analisar_arquivo_upload(uploaded_file):
-    """Analisa um arquivo enviado via upload"""
     try:
-        # Salva o arquivo temporariamente
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False, encoding='utf-8') as tmp_file:
-            # Lê o conteúdo do arquivo uploadado
-            content = uploaded_file.getvalue().decode('utf-8')
-            tmp_file.write(content)
-            tmp_file_path = tmp_file.name
-        
-        # Analisa o arquivo
-        analisador = AnalisadorAtendimento()
-        resultado = analisador.analisar_conversa(tmp_file_path)
-        
-        # Remove o arquivo temporário
-        os.unlink(tmp_file_path)
-        
-        return resultado
-        
+        if uploaded_file.name.lower().endswith('.pdf'):
+            if PyPDF2 is None:
+                st.error("PyPDF2 não está instalado. Adicione 'PyPDF2' ao requirements.txt.")
+                return None
+            texto = extrair_texto_pdf(uploaded_file)
+            if not texto.strip():
+                st.error("Não foi possível extrair texto do PDF. Verifique se o PDF não é escaneado/imagem.")
+                return None
+            # Salva texto extraído em arquivo temporário
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False, encoding='utf-8') as tmp_file:
+                tmp_file.write(texto)
+                tmp_file_path = tmp_file.name
+            analisador = AnalisadorAtendimento()
+            resultado = analisador.analisar_conversa(tmp_file_path)
+            os.unlink(tmp_file_path)
+            return resultado
+        else:
+            # TXT normal
+            try:
+                content = uploaded_file.getvalue().decode('utf-8')
+            except UnicodeDecodeError:
+                content = uploaded_file.getvalue().decode('latin1')
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False, encoding='utf-8') as tmp_file:
+                tmp_file.write(content)
+                tmp_file_path = tmp_file.name
+            analisador = AnalisadorAtendimento()
+            resultado = analisador.analisar_conversa(tmp_file_path)
+            os.unlink(tmp_file_path)
+            return resultado
     except Exception as e:
         st.error(f"❌ Erro ao analisar arquivo: {e}")
         return None
