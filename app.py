@@ -2,7 +2,10 @@
 Auditor de Atendimento - Interface Web
 Aplicação Streamlit para análise de qualidade de atendimento
 """
-
+try:
+    import PyPDF2
+except ImportError:
+    PyPDF2 = None
 import streamlit as st
 import pandas as pd
 import plotly.express as px
