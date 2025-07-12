@@ -126,7 +126,18 @@ def analisar_arquivo_upload(uploaded_file):
     except Exception as e:
         st.error(f"❌ Erro ao analisar arquivo: {e}")
         return None
-
+        
+def extrair_texto_pdf(uploaded_file):
+    try:
+        reader = PyPDF2.PdfReader(uploaded_file)
+        texto = ''
+        for page in reader.pages:
+            page_text = page.extract_text()
+            if page_text:
+                texto += page_text + '\n'
+        return texto
+    except Exception as e:
+        return ''
 
 def analisar_arquivo_local(arquivo_path):
     """Analisa um arquivo local"""
