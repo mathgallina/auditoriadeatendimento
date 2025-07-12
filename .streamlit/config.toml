@@ -1,18 +1,7 @@
-[global]
-developmentMode = false
-
-[server]
-headless = true
-port = 8501
-enableCORS = false
-enableXsrfProtection = false
-
-[browser]
-gatherUsageStats = false
-
-[theme]
-primaryColor = "#FF6B6B"
-backgroundColor = "#FFFFFF"
-secondaryBackgroundColor = "#F0F2F6"
-textColor = "#262730"
-font = "sans serif" 
+   [theme]
+   base="dark"
+   primaryColor="#7B61FF"
+   backgroundColor="#181A1B"
+   secondaryBackgroundColor="#23272F"
+   textColor="#F3F6FA"
+   font="sans serif"
