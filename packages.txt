@@ -1,2 +1,0 @@
-# Dependências do sistema para o Streamlit Cloud
-# Este arquivo é opcional e só é necessário se precisar de pacotes do sistema 
