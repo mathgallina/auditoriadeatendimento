@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Auditor de Atendimento - Interface Web
 Aplicação Streamlit para análise de qualidade de atendimento
@@ -66,11 +65,10 @@ def main():
         
         # Upload do arquivo
         uploaded_file = st.file_uploader(
-            "Escolha um arquivo .txt com a conversa",
-            type=['txt'],
-            help="Arraste um arquivo ou clique para selecionar"
-        )
-        
+       "Escolha um arquivo .txt ou .pdf com a conversa",
+       type=['txt', 'pdf'],
+       help="Arraste um arquivo ou clique para selecionar"
+   )
         # Botão de análise
         if uploaded_file is not None:
             if st.button("🔍 Analisar Conversa", type="primary"):
